@@ -1,4 +1,5 @@
-# Upgrade - Application Flutter (En cour de dévéloppement)
+# Upgrade - Application Flutter 
+(En cour de dévéloppement)
 
 ## Description
 
@@ -29,3 +30,90 @@ Voici un aperçu rapide des fonctionnalités principales :
 * **SQLite** : Base de données locale pour stocker les informations sur les repas, les exercices et le poids.
 * **fl\_chart** : Librairie pour afficher des graphiques.
 * **image\_picker** : Librairie pour sélectionner des images de repas.
+
+---
+
+## 📁 Structure du dossier `lib/`
+
+Ce projet Flutter est organisé de manière modulaire pour faciliter la lisibilité, la maintenance et l’évolutivité. Voici une vue d'ensemble des principaux dossiers et fichiers du répertoire `lib/` :
+
+```
+lib/
+│
+├── main.dart
+├── app.dart
+│
+├── core/
+├── data/
+├── ui/
+└── providers/
+```
+
+### 🔹 `main.dart`
+
+Point d'entrée principal de l'application. Ce fichier initialise l'app et appelle `App()` (défini dans `app.dart`).
+
+### 🔹 `app.dart`
+
+Contient le `MaterialApp`, la définition des routes, du thème global, et du système de navigation.
+
+---
+
+### 📂 `core/` – Outils et constantes globales
+
+* `constants.dart` : Définition des constantes utilisées globalement (ex : couleurs, tailles, textes).
+* `theme.dart` : Définition du thème principal de l'application (couleurs, typographies...).
+* `utils.dart` : Fonctions utilitaires diverses réutilisables dans toute l’app.
+
+---
+
+### 📂 `data/` – Données et services
+
+#### `models/` :
+
+Contient les modèles de données utilisés dans l'application.
+
+* `meal.dart` : Représente un repas (nom, calories, image, etc.).
+* `user.dart` : Représente l'utilisateur (poids cible, email, etc.).
+
+#### `services/` :
+
+Gestion des sources de données : API, base de données locale, etc.
+
+* `nutrition_api.dart` : Service pour récupérer les données nutritionnelles d’aliments.
+* `local_db.dart` : Gestion de la base de données locale via SQLite.
+
+---
+
+### 📂 `ui/` – Interface utilisateur
+
+#### `screens/` :
+
+Écrans principaux de l'app.
+
+* `home_screen.dart` : Écran d’accueil.
+* `nutrition_screen.dart` : Suivi des repas.
+* `settings_screen.dart` : Paramètres utilisateur.
+
+#### `widgets/` :
+
+Widgets personnalisés, utilisés dans plusieurs écrans.
+
+* `meal_card.dart` : Carte affichant les détails d’un repas.
+* `progress_bar.dart` : Barre de progression (ex : calories consommées).
+
+#### `components/` :
+
+Petits widgets UI réutilisables partout.
+
+* `custom_button.dart` : Bouton stylisé commun.
+* `input_field.dart` : Champ de saisie personnalisable.
+
+---
+
+### 📂 `providers/` – Gestion de l’état (avec Provider)
+
+* `meal_provider.dart` : Logique et état liés aux repas (ajout, suppression, etc.).
+* `user_provider.dart` : Logique et état liés aux données utilisateur.
+
+---
