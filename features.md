@@ -1,153 +1,153 @@
-# Features du Projet - Upgrade
+# 🎯 Fonctionnalités de l'application **Upgrade**
 
-Ce document liste les principales fonctionnalités à implémenter dans l'application **Upgrade**. Chaque fonctionnalité est décrite avec son objectif, son comportement et les technologies utilisées.
-
----
-
-## Table des Matières
-
-1. [Authentification Utilisateur](#authentification-utilisateur)
-2. [Suivi des Repas](#suivi-des-repas)
-3. [Suivi du Poids](#suivi-du-poids)
-4. [Suivi des Exercices](#suivi-des-exercices)
-5. [Graphiques et Statistiques](#graphiques-et-statistiques)
-6. [Analyse de Photos de Repas](#analyse-de-photos-de-repas)
+Ce document présente les principales fonctionnalités prévues pour **Upgrade**, une application mobile dédiée au suivi de la santé, de la nutrition et de l'entraînement.
 
 ---
 
-### 1. Authentification Utilisateur
+## 📑 Table des matières
 
-**Objectif** : Permettre à l'utilisateur de créer un compte, de se connecter et de gérer ses informations personnelles pour suivre sa perte de poids.
-
-* **Fonctionnalités** :
-
-  * Inscription avec un nom, un email, et un mot de passe.
-  * Connexion à l'application avec un email et un mot de passe.
-  * Récupération du mot de passe oublié via un lien envoyé par email.
-  * Mise à jour des informations personnelles de l'utilisateur (poids cible, objectif, etc.).
-
-* **Comportement** :
-
-  * Lors de la première utilisation, l'utilisateur est invité à s'inscrire ou se connecter.
-  * L'utilisateur peut se déconnecter et se reconnecter à tout moment.
-
-* **Technologies** :
-
-  * Firebase Auth (ou une autre solution de gestion d'authentification).
+1. [Authentification Utilisateur](#1-authentification-utilisateur)
+2. [Suivi des Repas](#2-suivi-des-repas)
+3. [Suivi du Poids](#3-suivi-du-poids)
+4. [Suivi des Exercices](#4-suivi-des-exercices)
+5. [Graphiques et Statistiques](#5-graphiques-et-statistiques)
 
 ---
 
-### 2. Suivi des Repas
+## 1. Authentification Utilisateur
 
-**Objectif** : Permettre à l'utilisateur d'enregistrer ses repas quotidiens et de suivre sa consommation de calories.
+### 🎯 Objectif
 
-* **Fonctionnalités** :
+Permettre aux utilisateurs de créer un compte, de se connecter et de gérer leurs informations personnelles.
 
-  * Ajouter un repas avec les détails suivants : nom du repas, calories, photo (facultatif), date et heure du repas.
-  * Modifier ou supprimer un repas existant.
-  * Afficher une liste des repas du jour avec leur nombre de calories total.
-  * Afficher un résumé des repas pour la semaine, y compris le total des calories.
+### 🔧 Fonctionnalités
 
-* **Comportement** :
+* Création de compte avec nom, email et mot de passe
+* Connexion via email + mot de passe
+* Réinitialisation de mot de passe par email
+* Mise à jour des informations personnelles (poids cible, objectifs, etc.)
 
-  * Les repas ajoutés sont stockés dans une base de données locale et peuvent être modifiés ou supprimés par l'utilisateur.
-  * Le total des calories consommées pour la journée est calculé automatiquement.
+### 🧩 Comportement
 
-* **Technologies** :
+* À la première utilisation, l’utilisateur est invité à s’inscrire ou se connecter
+* Déconnexion et reconnexion à tout moment
 
-  * Base de données SQLite avec le package `sqflite`.
-  * Package `image_picker` pour ajouter une photo du repas.
+### 🛠️ Technologies
 
----
-
-### 3. Suivi du Poids
-
-**Objectif** : Permettre à l'utilisateur de suivre son poids et de visualiser son évolution.
-
-* **Fonctionnalités** :
-
-  * Ajouter une entrée de poids avec la date correspondante.
-  * Modifier ou supprimer une entrée de poids.
-  * Afficher l'historique du poids de l'utilisateur sous forme de liste.
-  * Afficher un graphique montrant l'évolution du poids sur une période donnée (par exemple, sur les 30 derniers jours).
-
-* **Comportement** :
-
-  * Les entrées de poids sont stockées localement et peuvent être visualisées sous forme de graphique.
-
-* **Technologies** :
-
-  * Base de données SQLite.
-  * Package `fl_chart` pour afficher les graphiques.
+* **Firebase Auth** (ou alternative d'authentification sécurisée)
 
 ---
 
-### 4. Suivi des Exercices
+## 2. Suivi des Repas
 
-**Objectif** : Permettre à l'utilisateur d'enregistrer ses séances d'entraînement et de suivre ses progrès.
+### 🎯 Objectif
 
-* **Fonctionnalités** :
+Permettre à l'utilisateur d'enregistrer ses repas et de suivre sa consommation calorique.
 
-  * Ajouter un exercice avec des détails : nom de l'exercice, nombre de séries, répétitions, poids utilisé (si applicable), durée, etc.
-  * Modifier ou supprimer un exercice enregistré.
-  * Afficher la liste des exercices effectués par jour.
-  * Calculer des statistiques de performance (ex : total de séries, répétitions, etc.).
+### 🔧 Fonctionnalités
 
-* **Comportement** :
+* Ajout d’un repas avec :
 
-  * Les exercices ajoutés sont stockés dans la base de données et sont affichés par jour ou par type d'exercice.
+  * Nom
+  * Calories
+  * Photo (optionnelle)
+  * Date et heure
+* Modification et suppression de repas
+* Affichage des repas par journée avec total calorique
+* Affichage hebdomadaire du résumé des repas
+* **Sections par jour** : Petit-déjeuner, Déjeuner, Dîner, Collations
+* Détail des **macros et calories par section**
+* Recherche d’aliments via barre de recherche
+* Base de données intégrée d'aliments avec calories et macros
+* Ajout par **photo ou scan de QR Code** pour reconnaître un aliment
 
-* **Technologies** :
+### 🧩 Comportement
 
-  * Base de données SQLite.
+* Les repas sont enregistrés localement et peuvent être modifiés
+* Le total journalier est calculé automatiquement
 
----
+### 🛠️ Technologies
 
-### 5. Graphiques et Statistiques
-
-**Objectif** : Offrir à l'utilisateur une vue d'ensemble de ses progrès via des graphiques et des statistiques visuelles.
-
-* **Fonctionnalités** :
-
-  * Affichage d'un graphique des calories consommées par jour.
-  * Affichage d'un graphique de l'évolution du poids.
-  * Affichage des progrès de l'utilisateur en termes d'exercices réalisés (séries, répétitions, poids).
-  * Affichage de statistiques globales (par exemple, nombre total de calories consommées sur la semaine).
-
-* **Comportement** :
-
-  * Les graphiques sont dynamiques et se mettent à jour en fonction des données de l'utilisateur.
-
-* **Technologies** :
-
-  * `fl_chart` pour les graphiques.
-  * Calculs effectués sur les données stockées dans SQLite.
+* Base de données **SQLite** (`sqflite`)
+* Ajout d’images : `image_picker`
+* Lecture code QR (à définir : `qr_code_scanner`, etc.)
 
 ---
 
-### 6. Analyse de Photos de Repas
+## 3. Suivi du Poids
 
-**Objectif** : Permettre à l'utilisateur d'analyser une photo de son repas pour obtenir une estimation des calories.
+### 🎯 Objectif
 
-* **Fonctionnalités** :
+Permettre à l'utilisateur de suivre son évolution de poids.
 
-  * Utiliser la caméra ou la galerie pour prendre ou importer une photo du repas.
-  * Analyser la photo via une API (par exemple, une API de reconnaissance d'images) pour estimer les calories du repas.
-  * Afficher l'estimation des calories et permettre à l'utilisateur de modifier les valeurs si nécessaire.
+### 🔧 Fonctionnalités
 
-* **Comportement** :
+* Ajout de poids (date automatiquement définie sur le jour courant)
+* Modification et suppression d’entrées
+* Historique affiché sous forme de liste
+* Graphique de l’évolution sur une période (30 jours, etc.)
 
-  * L'utilisateur peut prendre une photo du repas ou en importer une.
-  * L'application envoie la photo à une API d'analyse, qui renvoie une estimation des calories.
-  * L'utilisateur peut valider ou ajuster les informations.
+### 🧩 Comportement
 
-* **Technologies** :
+* Les données sont d'abord stockées localement
+* Objectif futur : synchronisation en ligne pour l’accès multiplateforme
 
-  * `image_picker` pour prendre ou importer la photo.
-  * API tierce pour l’analyse d’image (ex. : Google Vision, IBM Watson).
+### 🛠️ Technologies
+
+* **SQLite**
+* Graphiques : `fl_chart`
 
 ---
 
-## Conclusion
+## 4. Suivi des Exercices
 
-Ces fonctionnalités permettent de centraliser toutes les informations relatives à la nutrition, aux exercices et à la gestion de la perte de poids dans une seule application intuitive et fonctionnelle. Chaque fonctionnalité peut être développée et testée indépendamment, mais elles doivent être intégrées de manière cohérente pour offrir une expérience utilisateur fluide.
+### 🎯 Objectif
+
+Enregistrer les entraînements et suivre les performances.
+
+### 🔧 Fonctionnalités
+
+* Ajout d’un exercice :
+
+  * Nom
+  * Séries, répétitions
+  * Poids (si applicable)
+  * Durée
+* Modification/suppression d’exercices
+* Affichage journalier des exercices
+* Statistiques : total de séries, répétitions, poids soulevé
+* Mise en avant des "meilleures perfs"
+* **Routines prédéfinies** à sélectionner pour gagner du temps
+* Base d'exercices avec **description + image/vidéo** d’illustration
+
+### 🧩 Comportement
+
+* Les exercices sont classés par jour et par type
+
+### 🛠️ Technologies
+
+* Base de données **SQLite**
+
+---
+
+## 5. Graphiques et Statistiques
+
+### 🎯 Objectif
+
+Fournir une visualisation claire et motivante des progrès.
+
+### 🔧 Fonctionnalités
+
+* Graphique des calories consommées par jour
+* Graphique de l’évolution du poids
+* Suivi des performances sportives (volume total, répétitions, etc.)
+* Statistiques hebdomadaires globales
+
+### 🧩 Comportement
+
+* Graphiques dynamiques mis à jour automatiquement selon les données
+
+### 🛠️ Technologies
+
+* `fl_chart`
+* Données extraites de **SQLite**

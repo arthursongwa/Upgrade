@@ -19,7 +19,6 @@ Voici un aperçu rapide des fonctionnalités principales :
 3. **Suivi du Poids** : Suivez l'évolution de votre poids au fil du temps, avec des graphiques pour mieux visualiser vos progrès.
 4. **Suivi des Exercices** : Enregistrez vos exercices de salle de sport, suivez les séries et répétitions, et analysez vos performances.
 5. **Graphiques et Statistiques** : Visualisez vos progrès à travers des graphiques clairs et intuitifs.
-6. **Analyse de Photos de Repas** : Prenez des photos de vos repas et obtenez une estimation des calories grâce à l'analyse d'image.
 
 ---
 
