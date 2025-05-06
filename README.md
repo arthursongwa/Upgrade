@@ -9,6 +9,22 @@ Que vous soyez en train de perdre du poids, de maintenir votre forme physique ou
 
 ---
 
+## 📚 Sommaire
+
+* [📱 Description](#description)
+* [✨ Fonctionnalités](#fonctionnalités)
+* [🛠️ Technologies Utilisées](#technologies-utilisées)
+* [📁 Structure du dossier `lib/`](#-structure-du-dossier-lib)
+* [📦 Organisation du développement par features](#️-organisation-du-développement-par-features)
+
+  * [✅ V1 – Suivi du poids + Graph](#✅-v1--suivi-du-poids--graph)
+  * [✅ V2 – Ajout manuel des repas + calories](#✅-v2--ajout-manuel-des-repas--calories)
+  * [🔄 V3 – Analyse photo (via API)](#🔄-v3--analyse-photo-via-api-externe-plus-tard)
+  * [🏋️ V4 – Suivi des entraînements](#🏋️-v4--suivi-des-entraînements)
+  * [📊 V5 – Statistiques](#📊-v5--statistiques)
+
+---
+
 ## Fonctionnalités
 
 Pour plus de détails sur les fonctionnalités de l'application, vous pouvez consulter le fichier [features.md](./features.md).
