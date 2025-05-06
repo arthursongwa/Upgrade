@@ -117,3 +117,71 @@ Petits widgets UI réutilisables partout.
 * `user_provider.dart` : Logique et état liés aux données utilisateur.
 
 ---
+
+## 🛠️ **Organisation du développement par features**
+
+---
+
+### ✅ **V1 – Suivi du poids + Graph**
+
+> 🎯 Objectif : Permettre à l’utilisateur d’enregistrer et visualiser son évolution de poids.
+
+**Fonctionnalités :**
+
+* Ajout manuel de pesées quotidiennes
+* Visualisation d’un graphique (line chart)
+* Poids objectif (optionnel)
+* Stockage local (SQLite ou Hive)
+
+---
+
+### ✅ **V2 – Ajout manuel des repas + calories**
+
+> 🎯 Objectif : Créer une interface simple pour enregistrer ses repas et suivre les calories.
+
+**Fonctionnalités :**
+
+* Formulaire d’ajout d’un repas (nom, calories, heure)
+* Liste des repas du jour
+* Total calorique quotidien
+* Suppression/modification possible
+
+---
+
+### 🔄 **V3 – Analyse photo (via API externe, plus tard)**
+
+> 🎯 Objectif : Ajouter une fonctionnalité IA/OCR pour reconnaître des aliments sur photo.
+
+**Fonctionnalités (plus tard) :**
+
+* Upload ou capture d’image d’un repas
+* Appel à une API nutritionnelle pour estimation automatique
+* Remplissage automatique du formulaire nutrition
+
+---
+
+### 🏋️ **V4 – Suivi des entraînements**
+
+> 🎯 Objectif : Ajouter et visualiser ses séances de sport.
+
+**Fonctionnalités :**
+
+* Ajout d’exercices avec séries, poids, répétitions
+* Historique des entraînements
+* Regroupement par jour
+* Statistiques simples (nb total de reps, poids soulevé)
+
+---
+
+### 📊 **V5 – Statistiques**
+
+> 🎯 Objectif : Synthétiser les données pour une vue d’ensemble.
+
+**Fonctionnalités :**
+
+* Graphique de progression calories/jour
+* Graphique de l’évolution du poids
+* Moyenne calorique/semaine
+* Fréquence d'entraînement
+
+---
