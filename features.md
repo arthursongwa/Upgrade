@@ -1,10 +1,6 @@
-Voici un modèle de fichier `features.md` pour ton projet Flutter de suivi de nutrition et de perte de poids. Ce fichier décrit les principales fonctionnalités que tu souhaites intégrer dans ton application, ainsi que des détails sur leur comportement et leur objectif.
+# Features du Projet - Upgrade
 
----
-
-# Features du Projet - Suivi de Nutrition et Perte de Poids
-
-Ce document liste les principales fonctionnalités à implémenter dans l'application **Suivi de Nutrition et Perte de Poids**. Chaque fonctionnalité est décrite avec son objectif, son comportement et les technologies utilisées.
+Ce document liste les principales fonctionnalités à implémenter dans l'application **Upgrade**. Chaque fonctionnalité est décrite avec son objectif, son comportement et les technologies utilisées.
 
 ---
 
@@ -155,7 +151,3 @@ Ce document liste les principales fonctionnalités à implémenter dans l'applic
 ## Conclusion
 
 Ces fonctionnalités permettent de centraliser toutes les informations relatives à la nutrition, aux exercices et à la gestion de la perte de poids dans une seule application intuitive et fonctionnelle. Chaque fonctionnalité peut être développée et testée indépendamment, mais elles doivent être intégrées de manière cohérente pour offrir une expérience utilisateur fluide.
-
----
-
-Ce fichier **`features.md`** te permet de garder une vue d'ensemble claire sur les objectifs du projet et d'orienter le développement de manière structurée. Tu peux également l'utiliser pour suivre l'avancement de ton projet en ajoutant des commentaires à chaque fonctionnalité au fur et à mesure que tu avances. 😊

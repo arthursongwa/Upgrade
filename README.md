@@ -1,12 +1,8 @@
-Voici un modèle de fichier `README.md` pour ton projet Flutter. Ce fichier présente ton projet, les objectifs, les technologies utilisées, et donne accès aux fonctionnalités détaillées.
-
----
-
-# Suivi de Nutrition et Perte de Poids - Application Flutter
+# Upgrade - Application Flutter
 
 ## Description
 
-L'application **Suivi de Nutrition et Perte de Poids** a été développée pour aider les utilisateurs à suivre leur alimentation, leurs exercices et leur évolution physique au quotidien. Elle permet de centraliser toutes les informations liées à la nutrition, aux exercices en salle, et au suivi du poids, tout en offrant des outils pratiques tels que des graphiques pour visualiser les progrès.
+L'application **Upgrade** a été développée pour aider les utilisateurs à suivre leur alimentation, leurs exercices et leur évolution physique au quotidien. Elle permet de centraliser toutes les informations liées à la nutrition, aux exercices en salle, et au suivi du poids, tout en offrant des outils pratiques tels que des graphiques pour visualiser les progrès.
 
 Que vous soyez en train de perdre du poids, de maintenir votre forme physique ou simplement de suivre vos habitudes alimentaires, cette application offre une expérience complète et intuitive pour vous aider à atteindre vos objectifs.
 
