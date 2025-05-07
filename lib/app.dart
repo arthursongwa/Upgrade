@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      // theme: AppTheme.darkTheme, // si tu as défini un thème sombre
+      theme: AppTheme.darkTheme, // si tu as défini un thème sombre
     );
   }
 }

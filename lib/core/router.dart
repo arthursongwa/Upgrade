@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:upgrade/ui/screens/home_screen.dart';
 import 'package:upgrade/ui/screens/nutrition_screen.dart';
@@ -18,8 +18,8 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const NutritionScreen(),
     ),
     GoRoute(
-      path: '/settings',
-      name: 'settings',
+      path: '/profile',
+      name: 'profile',
       builder: (context, state) => const ProfileScreen(),
     ),
   ],
