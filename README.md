@@ -9,6 +9,22 @@ Que vous soyez en train de perdre du poids, de maintenir votre forme physique ou
 
 ---
 
+## 🚀 Avancement du Projet
+
+### 📊 Objectifs et Statut
+
+| **Tâche**                     | **Statut**  | **Commentaires**                                            |
+| ----------------------------- | ----------- | ----------------------------------------------------------- |
+| **Conception du Design**      | ✅ Terminé  | Design principal, couleurs et styles validés.               |
+| **Structure du Code**         | ✅ Terminé  | Structure de projet définie et mise en place.               |
+| **Développement du Backend**  | 🔄 En Cours | API de gestion des données utilisateurs.                    |
+| **Développement du Frontend** | 🔄 En Cours | Interface de suivi nutrition en cours.                      |
+| **Tests Unitaires**           | ⏳ À venir   | Les tests seront ajoutés après la mise en place du backend. |
+| **Mise en Production**        | ⏳ À venir   | Lancement prévu après l'intégration du frontend et backend. |
+| **Documentation**             | ⏳ À venir   | README et documentation de l'API en cours de rédaction.     |
+
+---
+
 ## 📚 Sommaire
 
 * [📱 Description](#description)
