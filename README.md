@@ -55,14 +55,37 @@ Ce projet Flutter est organisé de manière modulaire pour faciliter la lisibili
 
 ```
 lib/
+├── main.dart              # Point d’entrée principal
+├── app.dart               # Définit MaterialApp, GoRouter et thème
 │
-├── main.dart
-├── app.dart
+├── core/                  # Thème, constantes, utilitaires
+│   ├── constants.dart
+│   ├── theme.dart
+│   └── utils.dart
 │
-├── core/
-├── data/
-├── ui/
-└── providers/
+├── data/                  # Données (modèles, services)
+│   ├── models/
+│   │   ├── meal.dart
+│   │   └── user.dart
+│   └── services/
+│       ├── nutrition_api.dart
+│       └── local_db.dart
+│
+├── ui/                    # Interface utilisateur
+│   ├── screens/
+│   │   ├── home_screen.dart
+│   │   ├── nutrition_screen.dart
+│   │   └── profile_screen.dart
+│   ├── widgets/
+│   │   ├── meal_card.dart
+│   │   └── progress_bar.dart
+│   └── components/
+│       ├── custom_button.dart
+│       └── input_field.dart
+│
+└── providers/             # Gestion de l'état
+    ├── meal_provider.dart
+    └── user_provider.dart
 ```
 
 ### 🔹 `main.dart`
