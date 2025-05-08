@@ -240,3 +240,80 @@ Petits widgets UI réutilisables partout.
 * Fréquence d'entraînement
 
 ---
+
+
+
+
+
+
+
+#### 3. **Créer tes models (`models/`)**
+
+> 🧱 Classe Dart pour chaque entité (`User`, `Food`, `Exercise`, `MealLog`, `Routine`, etc.)
+> Avec méthodes :
+
+```dart
+factory Food.fromJson(Map<String, dynamic> json)
+Map<String, dynamic> toJson()
+```
+
+---
+
+#### 4. **Créer tes providers/services (`services/`, `repositories/`)**
+
+> 🔌 Ils gèrent l’accès aux données :
+
+* Pour SQLite : `food_local_service.dart`
+* Pour Firebase : `user_remote_service.dart`, `auth_service.dart`
+* Pour la logique : `meal_tracker_service.dart`
+
+---
+
+#### 5. **Commencer les écrans de base (`screens/`)**
+
+> 🚧 Commence par :
+
+* **Onboarding/Login/Register**
+* **Dashboard** (résumé nutrition + entraînement)
+* **Add/Edit Repas**
+* **Add/Edit Routine**
+
+---
+
+#### 6. **Créer tes widgets réutilisables (`widgets/`)**
+
+> Exemples :
+
+* `FoodCard`, `ExerciseTile`, `DayProgressBar`, `MacroPieChart`, `PrimaryButton`, etc.
+
+---
+
+#### 7. **Connexion à la base locale (SQLite/Hive)**
+
+> 💾 Tu peux commencer en local pour :
+
+* stocker les repas,
+* les routines,
+* le user.
+
+Tu implémentes les DAO (ou services) pour chaque entité.
+
+---
+
+#### 8. **Tests manuels + responsive design**
+
+> 📱 Teste ton app sur :
+
+* Écran petit, moyen, grand
+* Thème clair et sombre
+* Vitesse d'exécution / bugs
+
+---
+
+#### 9. **Connexion à Firebase**
+
+> Quand la logique locale est bien testée :
+
+* Auth Firebase
+* Firestore pour sync
+* `Cloud sync toggle` dans settings

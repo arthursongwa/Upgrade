@@ -1,0 +1,93 @@
+
+  {
+    "id": "mealLog_2025-05-06_user_abc123",
+    "user_id": "user_abc123",
+    "date": "2025-05-06",
+    "meals": {
+      "breakfast": [
+        {
+          "food_name": "Oeufs brouillés",
+          "quantity_g": 150,
+          "calories": 210,
+          "proteins": 14,
+          "carbs": 1,
+          "fats": 15
+        }
+      ],
+      "lunch": [],
+      "dinner": []
+    },
+    "total_calories": 210,
+    "total_proteins": 14,
+    "total_carbs": 1,
+    "total_fats": 15
+  }
+  {
+    "id": "routine_push_day",
+    "user_id": "user_abc123",
+    "name": "Push Day",
+    "description": "Pectoraux, épaules, triceps",
+    "exercises": [
+      {
+        "exercise_id": "ex_1",
+        "name": "Développé couché",
+        "sets": 4,
+        "reps": 10,
+        "rest_sec": 90
+      },
+      {
+        "exercise_id": "ex_2",
+        "name": "Élévations latérales",
+        "sets": 3,
+        "reps": 12,
+        "rest_sec": 60
+      }
+    ]
+  }
+  {
+    "id": "session_2025-05-06_user_abc123",
+    "user_id": "user_abc123",
+    "routine_id": "routine_push_day",
+    "date": "2025-05-06",
+    "exercises_done": [
+      {
+        "exercise_id": "ex_1",
+        "sets": [
+          { "reps": 10, "weight_kg": 60 },
+          { "reps": 10, "weight_kg": 60 },
+          { "reps": 8, "weight_kg": 65 }
+        ]
+      }
+    ],
+    "duration_min": 55,
+    "calories_burned": 420
+  }
+  {
+    "id": "food_001",
+    "name": "Oeuf",
+    "brand": null,
+    "category": "Protéine",
+    "portion_size_g": 100,
+    "calories": 143,
+    "proteins": 13,
+    "carbs": 1.1,
+    "fats": 10.3,
+    "unit": "g",
+    "is_custom": false, // true si ajouté manuellement par un utilisateur
+    "user_id": null,    // si custom, lié à un user
+    "created_at": "2025-05-01T10:30:00Z"
+  }
+  {
+    "id": "ex_001",
+    "name": "Développé couché",
+    "muscle_group": "Pectoraux",
+    "equipment": "Barre",  // ou haltères, poids du corps, machine...
+    "difficulty": "intermédiaire",  // facile, intermédiaire, difficile
+    "type": "force",        // force, cardio, mobilité, etc.
+    "video_url": "https://youtube.com/exemple",
+    "description": "Allonge-toi sur un banc et pousse la barre vers le haut en gardant les coudes sous contrôle.",
+    "is_custom": false,
+    "user_id": null,
+    "created_at": "2025-05-01T12:00:00Z"
+  }
+          

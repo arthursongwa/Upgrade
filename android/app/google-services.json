@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "70607372649",
+    "project_id": "upgrade-df66a",
+    "storage_bucket": "upgrade-df66a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70607372649:android:596ebef1811798ec07fdf8",
+        "android_client_info": {
+          "package_name": "com.example.upgrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70607372649-ubrdgmai5gpemetb9uudckool02gdseq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRV6m2z4w_We6Z4z_lvPFnLNOJ_vufKDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70607372649-ubrdgmai5gpemetb9uudckool02gdseq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70607372649:android:b45d90fbba1307bd07fdf8",
+        "android_client_info": {
+          "package_name": "com.upgrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70607372649-ubrdgmai5gpemetb9uudckool02gdseq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRV6m2z4w_We6Z4z_lvPFnLNOJ_vufKDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70607372649-ubrdgmai5gpemetb9uudckool02gdseq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
