@@ -1,49 +1,6 @@
 
-  {
-    "id": "mealLog_2025-05-06_user_abc123",
-    "user_id": "user_abc123",
-    "date": "2025-05-06",
-    "meals": {
-      "breakfast": [
-        {
-          "food_name": "Oeufs brouillés",
-          "quantity_g": 150,
-          "calories": 210,
-          "proteins": 14,
-          "carbs": 1,
-          "fats": 15
-        }
-      ],
-      "lunch": [],
-      "dinner": []
-    },
-    "total_calories": 210,
-    "total_proteins": 14,
-    "total_carbs": 1,
-    "total_fats": 15
-  }
-  {
-    "id": "routine_push_day",
-    "user_id": "user_abc123",
-    "name": "Push Day",
-    "description": "Pectoraux, épaules, triceps",
-    "exercises": [
-      {
-        "exercise_id": "ex_1",
-        "name": "Développé couché",
-        "sets": 4,
-        "reps": 10,
-        "rest_sec": 90
-      },
-      {
-        "exercise_id": "ex_2",
-        "name": "Élévations latérales",
-        "sets": 3,
-        "reps": 12,
-        "rest_sec": 60
-      }
-    ]
-  }
+  
+  
   {
     "id": "session_2025-05-06_user_abc123",
     "user_id": "user_abc123",
@@ -62,6 +19,10 @@
     "duration_min": 55,
     "calories_burned": 420
   }
+
+
+
+  /============================================================
   {
     "id": "food_001",
     "name": "Oeuf",
@@ -90,4 +51,49 @@
     "user_id": null,
     "created_at": "2025-05-01T12:00:00Z"
   }
-          
+          {
+    "id": "mealLog_2025-05-06_user_abc123",
+    "user_id": "user_abc123",
+    "date": "2025-05-06",
+    "meals": {
+      "breakfast": [
+        {
+          "food_name": "Oeufs brouillés",
+          "quantity_g": 150,
+          "calories": 210,
+          "proteins": 14,
+          "carbs": 1,
+          "fats": 15
+        }
+      ],
+      "lunch": [],
+      "dinner": []
+    },
+    "total_calories": 210,
+    "total_proteins": 14,
+    "total_carbs": 1,
+    "total_fats": 15
+  }
+
+  {
+    "id": "routine_push_day",
+    "user_id": "user_abc123",
+    "name": "Push Day",
+    "description": "Pectoraux, épaules, triceps",
+    "exercises": [
+      {
+        "exercise_id": "ex_1",
+        "name": "Développé couché",
+        "sets": 4,
+        "reps": 10,
+        "rest_sec": 90
+      },
+      {
+        "exercise_id": "ex_2",
+        "name": "Élévations latérales",
+        "sets": 3,
+        "reps": 12,
+        "rest_sec": 60
+      }
+    ]
+  }
