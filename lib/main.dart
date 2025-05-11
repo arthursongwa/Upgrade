@@ -7,8 +7,11 @@ import 'package:upgrade/firebase_options.dart';
 // import 'data/services/user_services.dart';
 import 'package:provider/provider.dart';
 import 'providers/user_providers.dart';
-import 'ui/screens/login_screen.dart';
-import 'core/theme.dart';
+// import 'ui/screens/login_screen.dart';
+// import 'core/theme.dart';
+
+// import 'ui/screens/register_screen.dart';
+import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,14 +25,14 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.darkTheme,
-      title: 'Upgrade - ',
-      home: LoginScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: AppTheme.darkTheme,
+//       title: 'Upgrade - ',
+//       home: LoginScreen(),
+//       debugShowCheckedModeBanner: false,
+//     );
+//   }
+// }

@@ -10,6 +10,7 @@ class PrimaryInput extends StatelessWidget {
   final TextInputType keyboardType;
   final Icon? icon;
   final double? width;
+  final String? Function(String?)? validator;
 
   const PrimaryInput({
     Key? key,
@@ -19,6 +20,7 @@ class PrimaryInput extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.icon,
     this.width = double.infinity,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -27,11 +29,13 @@ class PrimaryInput extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: AppRadius.lg),
       child: SizedBox(
         width: width, // largeur fixe
-        child: TextField(
+        child: TextFormField(
+          validator: validator,
           controller: controller,
           obscureText: obscureText,
           keyboardType: keyboardType,
           style: AppTypography.button,
+          cursorColor: Colors.white,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: AppTypography.button.copyWith(
