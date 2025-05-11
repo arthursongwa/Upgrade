@@ -4,7 +4,8 @@ import 'typography.dart';
 
 class AppTheme {
   static final ThemeData darkTheme = ThemeData(
-    brightness: Brightness.dark,
+    // useMaterial3: true,
+    // brightness: Brightness.light,
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: AppBarTheme(
