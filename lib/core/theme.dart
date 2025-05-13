@@ -4,6 +4,12 @@ import 'typography.dart';
 
 class AppTheme {
   static final ThemeData darkTheme = ThemeData(
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.secondary, // Couleur du curseur
+      selectionColor: AppColors.secondary, // Couleur de fond de la sélection
+      selectionHandleColor:
+          AppColors.secondary, // Couleur des poignées de sélection
+    ),
     // useMaterial3: true,
     // brightness: Brightness.light,
     primaryColor: AppColors.primary,

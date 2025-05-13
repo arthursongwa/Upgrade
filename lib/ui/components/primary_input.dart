@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../core/colors.dart';
 import '../../core/typography.dart';
-import '../../core/constant.dart'; // Contient AppSpacing
+import '../../core/constant.dart';
 
-class PrimaryInput extends StatelessWidget {
+class PrimaryInput extends StatefulWidget {
   final String hintText;
   final bool obscureText;
   final TextEditingController? controller;
@@ -24,21 +24,40 @@ class PrimaryInput extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<PrimaryInput> createState() => _PrimaryInputState();
+}
+
+class _PrimaryInputState extends State<PrimaryInput> {
+  late bool _obscure;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscure = widget.obscureText;
+  }
+
+  void _toggleVisibility() {
+    setState(() {
+      _obscure = !_obscure;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: AppRadius.lg),
       child: SizedBox(
-        width: width, // largeur fixe
+        width: widget.width,
         child: TextFormField(
-          validator: validator,
-          controller: controller,
-          obscureText: obscureText,
-          keyboardType: keyboardType,
+          validator: widget.validator,
+          controller: widget.controller,
+          obscureText: _obscure,
+          keyboardType: widget.keyboardType,
           style: AppTypography.button,
           cursorColor: Colors.white,
           decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: AppTypography.button.copyWith(
+            hintText: widget.hintText,
+            hintStyle: AppTypography.body.copyWith(
               color: AppColors.text.withOpacity(0.6),
             ),
             contentPadding: const EdgeInsets.symmetric(
@@ -46,7 +65,17 @@ class PrimaryInput extends StatelessWidget {
               horizontal: AppSpacing.md,
             ),
             filled: true,
-            prefixIcon: icon,
+            prefixIcon: widget.icon,
+            suffixIcon:
+                widget.obscureText
+                    ? IconButton(
+                      icon: Icon(
+                        _obscure ? Icons.visibility_off : Icons.visibility,
+                        color: AppColors.text.withOpacity(0.6),
+                      ),
+                      onPressed: _toggleVisibility,
+                    )
+                    : null,
             fillColor: AppColors.primary,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadius.md),
