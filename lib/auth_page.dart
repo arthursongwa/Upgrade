@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthPage extends StatefulWidget {
+  const AuthPage({super.key});
+
   @override
   _AuthPageState createState() => _AuthPageState();
 }
@@ -68,8 +70,8 @@ class _AuthPageState extends State<AuthPage> {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: signOut,
-                child: Text("Se déconnecter"),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                child: Text("Se déconnecter"),
               ),
             ],
             SizedBox(height: 20),

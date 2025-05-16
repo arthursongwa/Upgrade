@@ -4,6 +4,8 @@ import '../components/primary_button.dart';
 import '../components/primary_input.dart';
 import '../../core/typography.dart';
 import '../../core/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -14,7 +16,47 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   bool rememberMe = false;
 
-  final _formKey = GlobalKey<FormState>();
+  // final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _rePasswordController = TextEditingController();
+
+  Future<void> signUp() async {
+    try {
+      final email = _emailController.text.trim();
+      final password = _passwordController.text.trim();
+      final username = _usernameController.text.trim();
+      final phone = _phoneController.text.trim();
+
+      // Étape 1 : Créer l'utilisateur dans Firebase Auth
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      print("✅ Inscription réussie !");
+
+      // Étape 2 : Obtenir l'UID
+      String uid = userCredential.user!.uid;
+
+      print("✅ UID Get!" + uid);
+      // Étape 3 : Enregistrer les données dans Firestore
+      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+        'username': username,
+        'email': email,
+        'phone': phone,
+        'password': password,
+      });
+      print("✅ Data Save !");
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      print("✅ Connexion reussie !");
+    } catch (e) {
+      print("❌ Erreur d'inscription : $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 PrimaryInput(
+                  controller: _usernameController,
                   hintText: "Username",
                   keyboardType: TextInputType.name,
                   icon: Icon(
@@ -51,6 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                 ),
                 PrimaryInput(
+                  controller: _emailController,
                   hintText: "Adresse email",
                   keyboardType: TextInputType.emailAddress,
                   icon: Icon(
@@ -68,6 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                 ),
                 PrimaryInput(
+                  controller: _phoneController,
                   hintText: "Téléphone",
                   keyboardType: TextInputType.phone,
                   icon: Icon(
@@ -86,6 +131,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 // SizedBox(height: AppSpacing.md),
                 PrimaryInput(
+                  controller: _passwordController,
                   hintText: "Mot de passe",
                   icon: Icon(
                     Icons.lock_outline,
@@ -94,6 +140,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   obscureText: true,
                 ),
                 PrimaryInput(
+                  controller: _rePasswordController,
                   hintText: "ReMot de passe",
                   icon: Icon(
                     Icons.lock_outline,
@@ -102,14 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   obscureText: true,
                 ),
                 SizedBox(height: AppSpacing.md),
-                PrimaryButton(
-                  label: "REGISTER",
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // Auth OK
-                    }
-                  },
-                ),
+                PrimaryButton(label: "REGISTER", onPressed: signUp),
                 SizedBox(height: AppSpacing.md),
                 Row(
                   children: [

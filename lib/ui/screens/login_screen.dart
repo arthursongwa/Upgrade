@@ -4,6 +4,7 @@ import '../components/primary_button.dart';
 import '../components/primary_input.dart';
 import '../../core/typography.dart';
 import '../../core/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,7 +15,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool rememberMe = false;
 
-  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  // final _formKey = GlobalKey<FormState>();
+
+  Future<void> _login() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      print("✅ Connexion réussie !");
+    } catch (e) {
+      print("❌ Erreur de connexion : $e");
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("❌ Erreur de connexion : $e")));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 PrimaryInput(
+                  controller: _emailController,
                   hintText: "Adresse email",
                   keyboardType: TextInputType.emailAddress,
                   icon: Icon(
@@ -52,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 // SizedBox(height: AppSpacing.md),
                 PrimaryInput(
+                  controller: _passwordController,
                   hintText: "Mot de passe",
                   icon: Icon(
                     Icons.lock_outline,
@@ -75,10 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .secondary, // couleur de la bordure décochée ET cochée
                         width: 1, // épaisseur
                       ),
-                      fillColor: MaterialStateProperty.resolveWith<Color>((
-                        Set<MaterialState> states,
+                      fillColor: WidgetStateProperty.resolveWith<Color>((
+                        Set<WidgetState> states,
                       ) {
-                        if (states.contains(MaterialState.selected)) {
+                        if (states.contains(WidgetState.selected)) {
                           return AppColors
                               .secondary; // couleur quand c’est coché
                         }
@@ -94,14 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(height: AppSpacing.md),
-                PrimaryButton(
-                  label: "LOGIN",
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // Auth OK
-                    }
-                  },
-                ),
+                PrimaryButton(label: "LOGIN", onPressed: _login),
                 SizedBox(height: AppSpacing.lg),
                 Row(
                   children: [

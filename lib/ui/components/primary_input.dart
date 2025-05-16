@@ -13,7 +13,7 @@ class PrimaryInput extends StatefulWidget {
   final String? Function(String?)? validator;
 
   const PrimaryInput({
-    Key? key,
+    super.key,
     required this.hintText,
     this.obscureText = false,
     this.controller,
@@ -21,7 +21,7 @@ class PrimaryInput extends StatefulWidget {
     this.icon,
     this.width = double.infinity,
     this.validator,
-  }) : super(key: key);
+  });
 
   @override
   State<PrimaryInput> createState() => _PrimaryInputState();

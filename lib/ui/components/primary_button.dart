@@ -33,7 +33,7 @@ class PrimaryButton extends StatelessWidget {
             ), // par exemple 8.0
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(label, style: AppTypography.button),
       ),
     );

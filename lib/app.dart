@@ -4,6 +4,7 @@ import 'package:upgrade/core/theme.dart';
 
 import 'ui/screens/register_screen.dart';
 import 'ui/screens/login_screen.dart';
+import './auth_wrapper.dart';
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Upgrade App',
       theme: AppTheme.darkTheme,
-      initialRoute: '/login',
+      initialRoute: '/auth',
       routes: {
+        '/auth': (context) => AuthWrapper(),
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(), // 🔥 AJOUT
       },
