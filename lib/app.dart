@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:upgrade/core/theme.dart';
 // import 'package:upgrade/core/router.dart'; // ← le router défini
 
-import 'ui/screens/register_screen.dart';
-import 'ui/screens/login_screen.dart';
+// import 'ui/screens/register_screen.dart';
+// import 'ui/screens/login_screen.dart';
 import './auth_wrapper.dart';
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
@@ -27,12 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Upgrade App',
       theme: AppTheme.darkTheme,
-      initialRoute: '/auth',
-      routes: {
-        '/auth': (context) => AuthWrapper(),
-        '/login': (context) => const LoginScreen(),
-        '/register': (context) => const RegisterScreen(), // 🔥 AJOUT
-      },
+      home: AuthWrapper(),
     );
   }
 }

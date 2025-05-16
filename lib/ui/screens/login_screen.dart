@@ -7,7 +7,9 @@ import '../../core/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final VoidCallback onToggle;
+
+  const LoginScreen({super.key, required this.onToggle});
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -17,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   // final _formKey = GlobalKey<FormState>();
 
   Future<void> _login() async {
@@ -194,10 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: AppTypography.smallText,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        // Navigue vers la page d'inscription
-                        Navigator.pushNamed(context, '/register');
-                      },
+                      onTap: widget.onToggle,
                       child: MouseRegion(
                         cursor:
                             SystemMouseCursors

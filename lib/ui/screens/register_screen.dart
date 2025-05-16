@@ -8,7 +8,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+  final VoidCallback onToggle;
+
+  const RegisterScreen({super.key, required this.onToggle});
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
@@ -209,10 +211,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Text("Déja un compte ?", style: AppTypography.smallText),
                     GestureDetector(
-                      onTap: () {
-                        // Navigue vers la page d'inscription
-                        Navigator.pushNamed(context, '/login');
-                      },
+                      onTap: widget.onToggle,
                       child: MouseRegion(
                         cursor:
                             SystemMouseCursors
