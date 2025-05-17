@@ -59,7 +59,7 @@ Voici un aperçu rapide des fonctionnalités principales :
 
 * **Flutter** : Framework pour le développement multiplateforme (iOS, Android).
 * **Firebase Auth** : Gestion de l'authentification utilisateur.
-* **SQLite** : Base de données locale pour stocker les informations sur les repas, les exercices et le poids.
+* **Firebase** : Base de données pour les informations sur les repas, les exercices et le poids.
 * **fl\_chart** : Librairie pour afficher des graphiques.
 * **image\_picker** : Librairie pour sélectionner des images de repas.
 
@@ -74,34 +74,47 @@ lib/
 ├── main.dart              # Point d’entrée principal
 ├── app.dart               # Définit MaterialApp, GoRouter et thème
 │
+├── assets/                    # Assets de l'application
+│   └── img/
+│       └──icons8-google-480.png
 ├── core/                  # Thème, constantes, utilitaires
 │   ├── constants.dart
 │   ├── theme.dart
-│   └── utils.dart
+│   ├── colors.dart
+│   ├── typography.dart
+│   └── router.dart
 │
 ├── data/                  # Données (modèles, services)
 │   ├── models/
-│   │   ├── meal.dart
-│   │   └── user.dart
+│   │   ├── aliment_model.dart
+│   │   ├── exo_model.dart
+│   │   ├── mealLog_model.dart
+│   │   ├── routineWork_model.dart
+│   │   ├── session_model.dart
+│   │   └── user_model.dart
 │   └── services/
-│       ├── nutrition_api.dart
+│       ├── user_services.dart
 │       └── local_db.dart
 │
 ├── ui/                    # Interface utilisateur
 │   ├── screens/
 │   │   ├── home_screen.dart
+│   │   ├── login_screen.dart
 │   │   ├── nutrition_screen.dart
+│   │   ├── register_screen.dart
 │   │   └── profile_screen.dart
 │   ├── widgets/
-│   │   ├── meal_card.dart
-│   │   └── progress_bar.dart
 │   └── components/
-│       ├── custom_button.dart
-│       └── input_field.dart
+│       ├── primary_button.dart
+│       └── primary_input.dart
 │
 └── providers/             # Gestion de l'état
-    ├── meal_provider.dart
-    └── user_provider.dart
+│   └── user_provider.dart
+│
+└── app.dart
+└── auth_wrapper.dart
+└── firebase_options.dart
+└── main.dart
 ```
 
 ### 🔹 `main.dart`
@@ -263,7 +276,6 @@ Map<String, dynamic> toJson()
 
 > 🔌 Ils gèrent l’accès aux données :
 
-* Pour SQLite : `food_local_service.dart`
 * Pour Firebase : `user_remote_service.dart`, `auth_service.dart`
 * Pour la logique : `meal_tracker_service.dart`
 
@@ -285,18 +297,6 @@ Map<String, dynamic> toJson()
 > Exemples :
 
 * `FoodCard`, `ExerciseTile`, `DayProgressBar`, `MacroPieChart`, `PrimaryButton`, etc.
-
----
-
-#### 7. **Connexion à la base locale (SQLite/Hive)**
-
-> 💾 Tu peux commencer en local pour :
-
-* stocker les repas,
-* les routines,
-* le user.
-
-Tu implémentes les DAO (ou services) pour chaque entité.
 
 ---
 
