@@ -8,8 +8,19 @@ class UserProvider with ChangeNotifier {
   UserModel? get user => _user;
 
   Future<void> loadUser(String uid) async {
-    _user = await UserService().getUser(uid);
-    notifyListeners(); // informe l’interface que les données ont changé
+    try {
+      print("Chargement utilisateur $uid...");
+      final fetchedUser = await UserService().getUser(uid);
+      if (fetchedUser != null) {
+        _user = fetchedUser;
+        print("Utilisateur chargé : ${_user!.name}");
+        notifyListeners();
+      } else {
+        print("Aucun utilisateur trouvé pour l'ID $uid");
+      }
+    } catch (e) {
+      print("Erreur lors du chargement de l'utilisateur : $e");
+    }
   }
 
   void setUser(UserModel user) {

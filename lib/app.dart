@@ -3,7 +3,7 @@ import 'package:upgrade/core/theme.dart';
 // import 'package:upgrade/core/router.dart'; // ← le router défini
 
 // import 'ui/screens/register_screen.dart';
-// import 'ui/screens/login_screen.dart';
+// import 'ui/screens/home_screen.dart';
 import './auth_wrapper.dart';
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});

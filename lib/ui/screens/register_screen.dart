@@ -191,7 +191,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'images/icons8-google-480.png', // assure-toi que l'icône est dans ton dossier assets
+                          'lib/assets/img/icons8-google-480.png', // assure-toi que l'icône est dans ton dossier assets
                           height: 30,
                         ),
                         SizedBox(width: 12),

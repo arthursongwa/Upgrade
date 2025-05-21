@@ -7,11 +7,22 @@ class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final double? width;
+  final Icon? icon;
+  final Color bgColor;
+  final Color fgColor;
+  final EdgeInsets padding;
 
   const PrimaryButton({
     required this.label,
     this.onPressed,
     this.width = double.infinity,
+    this.icon,
+    this.bgColor = AppColors.secondary,
+    this.fgColor = AppColors.text,
+    this.padding = const EdgeInsets.symmetric(
+      vertical: AppSpacing.lg,
+      horizontal: AppSpacing.xl,
+    ),
     super.key,
   });
 
@@ -20,21 +31,25 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: width,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.secondary,
-          foregroundColor: AppColors.text,
-          padding: EdgeInsets.symmetric(
-            vertical: AppSpacing.lg, // par exemple 16.0
-            horizontal: AppSpacing.xl, // par exemple 32.0
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              AppSpacing.sm,
-            ), // par exemple 8.0
+        style: ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(bgColor),
+          foregroundColor: WidgetStatePropertyAll(fgColor),
+          padding: WidgetStatePropertyAll(padding),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSpacing.sm),
+            ),
           ),
         ),
         onPressed: onPressed,
-        child: Text(label, style: AppTypography.button),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(label, style: AppTypography.button.copyWith(color: fgColor)),
+            if (icon != null) Spacer(),
+            if (icon != null) icon!,
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,6 @@
-// models/meal_log_model.dart
 import 'aliment_model.dart'; // Assurez-vous que ce fichier est importé
 
+// models/meal_log_model.dart
 class MealLogModel {
   final String id;
   final String userId;

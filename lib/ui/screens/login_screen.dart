@@ -5,6 +5,8 @@ import '../components/primary_input.dart';
 import '../../core/typography.dart';
 import '../../core/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../providers/user_providers.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   final VoidCallback onToggle;
@@ -24,10 +26,22 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _login() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+      final userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim(),
+          );
+      final firebaseUser = userCredential.user;
+
+      if (firebaseUser != null) {
+        final userProvider = Provider.of<UserProvider>(context, listen: false);
+
+        await userProvider.loadUser(
+          firebaseUser.uid,
+        ); // Charge depuis Firestore
+
+        // Navigator.pushReplacementNamed(context, '/home');
+      }
       print("✅ Connexion réussie !");
     } catch (e) {
       print("❌ Erreur de connexion : $e");
@@ -174,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'images/icons8-google-480.png', // assure-toi que l'icône est dans ton dossier assets
+                          'lib/assets/img/icons8-google-480.png', // assure-toi que l'icône est dans ton dossier assets
                           height: 30,
                         ),
                         SizedBox(width: 12),
