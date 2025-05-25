@@ -13,6 +13,7 @@ class LineChartSample2 extends StatefulWidget {
   final double barWidth;
   final bool showDot;
   final Color color;
+  final Color colorText;
   final Color gridColor;
   final double gridWidth;
   final List<int>? dashArray;
@@ -32,6 +33,7 @@ class LineChartSample2 extends StatefulWidget {
     this.gradientColors = const [Colors.cyan, Colors.blue],
     this.gridColor = Colors.grey,
     this.color = Colors.green,
+    this.colorText = Colors.grey,
     this.gridWidth = 1,
     this.dashArray = const [5, 5],
     this.unitX = 'kg',
@@ -50,7 +52,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
     return Stack(
       children: <Widget>[
         AspectRatio(
-          aspectRatio: 1.70,
+          aspectRatio: 1.80,
           child: Padding(
             padding: const EdgeInsets.only(
               right: 18,
@@ -61,7 +63,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
             child: Container(
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: const Color(0xFF161D26),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
@@ -71,24 +73,38 @@ class _LineChartSample2State extends State<LineChartSample2> {
             ),
           ),
         ),
-        SizedBox(
-          width: 60,
-          height: 34,
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Text(
-              'avg',
-              style: TextStyle(
-                fontSize: 12,
-                color:
-                    showAvg
-                        ? Colors.white.withValues(alpha: 0.5)
-                        : Colors.white,
-              ),
+        Container(
+          child: Padding(
+            padding: EdgeInsets.only(top: 30, left: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Titre de "),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      showAvg = !showAvg;
+                    });
+                  },
+                  child: Text(
+                    'avg',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color:
+                          showAvg
+                              ? Colors.white.withValues(alpha: 0.5)
+                              : Colors.white,
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.swap_horiz),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -179,7 +195,10 @@ class _LineChartSample2State extends State<LineChartSample2> {
             interval: 1,
             getTitlesWidget: (value, meta) {
               // Retourne un widget (souvent un Text)
-              return Text('${value.toInt()}'); // exemple dynamique pour poids
+              return Text(
+                '${value.toInt()}',
+                style: TextStyle(color: widget.colorText),
+              ); // exemple dynamique pour poids
             },
           ),
         ),
@@ -189,7 +208,10 @@ class _LineChartSample2State extends State<LineChartSample2> {
             interval: 1,
             getTitlesWidget: (value, meta) {
               // Retourne un widget (souvent un Text)
-              return Text('${value.toInt()}'); // exemple dynamique pour poids
+              return Text(
+                '${value.toInt()}',
+                style: TextStyle(color: widget.colorText),
+              ); // exemple dynamique pour poids
             },
             reservedSize: 20,
           ),
@@ -218,7 +240,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
               end: Alignment.bottomCenter,
               colors:
                   widget.gradientColors
-                      .map((color) => color.withValues(alpha: 0.3))
+                      .map((color) => color.withValues(alpha: 0.15))
                       .toList(),
             ),
           ),
@@ -259,7 +281,10 @@ class _LineChartSample2State extends State<LineChartSample2> {
             reservedSize: 30,
             getTitlesWidget: (value, meta) {
               // Retourne un widget (souvent un Text)
-              return Text('${value.toInt()}'); // exemple dynamique pour poids
+              return Text(
+                '${value.toInt()}',
+                style: TextStyle(color: widget.colorText),
+              ); // exemple dynamique pour poids
             },
             interval: 1,
           ),
@@ -269,9 +294,12 @@ class _LineChartSample2State extends State<LineChartSample2> {
             showTitles: true,
             getTitlesWidget: (value, meta) {
               // Retourne un widget (souvent un Text)
-              return Text('${value.toInt()}'); // exemple dynamique pour poids
+              return Text(
+                '${value.toInt()}',
+                style: TextStyle(color: widget.colorText),
+              ); // exemple dynamique pour poids
             },
-            reservedSize: 42,
+            reservedSize: 20,
             interval: 1,
           ),
         ),
@@ -281,7 +309,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
         ),
       ),
       borderData: FlBorderData(
-        show: true,
+        show: false,
         border: Border.all(color: widget.gridColor),
       ),
       minX: widget.minX,

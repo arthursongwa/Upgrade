@@ -7,6 +7,7 @@ import 'package:upgrade/firebase_options.dart';
 // import 'data/services/user_services.dart';
 import 'package:provider/provider.dart';
 import 'providers/user_providers.dart';
+import 'providers/navigationProvider.dart';
 // import 'ui/screens/login_screen.dart';
 // import 'core/theme.dart';
 
@@ -19,7 +20,10 @@ void main() async {
 
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => NavigationProvider()),
+      ],
       child: MyApp(),
     ),
   );

@@ -10,13 +10,13 @@ import 'package:provider/provider.dart';
 import '../widgets/customLineChart.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     print("👋 Déconnecté !");
@@ -165,8 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              Text("✅ Connecté en tant que : "),
-              SizedBox(height: 16),
+              // SizedBox(height: AppSpacing.md),
               LineChartSample2(
                 spots: [
                   FlSpot(0, 3),
@@ -183,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
                 unitX: 'gr',
                 unitY: 'tr',
-                gridColor: AppColors.background,
+                gridColor: const Color(0xFF222A33),
                 color: AppColors.greenLight,
                 gradientColors: [
                   AppColors.greenLight,
@@ -197,6 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 child: Text("Se déconnecter"),
               ),
+              SizedBox(height: AppSpacing.md),
             ],
           ),
         ),

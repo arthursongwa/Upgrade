@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:upgrade/ui/screens/register_screen.dart';
-import 'ui/screens/home_screen.dart';
-import 'ui/screens/login_screen.dart';
+import 'package:upgrade/ui/screens/registerScreen.dart';
+import 'ui/screens/home.dart';
+import 'ui/screens/loginScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthWrapper extends StatelessWidget {
@@ -19,7 +19,7 @@ class AuthWrapper extends StatelessWidget {
           );
         }
         if (snapshot.hasData) {
-          return HomeScreen(); // ou MainApp()
+          return Home(); // ou MainApp()
         } else {
           return AuthScreenSwitcher();
         }
