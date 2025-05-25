@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import '../../core/colors.dart';
 
 class LineChartSample2 extends StatefulWidget {
   final double minX;

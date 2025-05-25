@@ -9,6 +9,9 @@ import '../../providers/user_providers.dart';
 import 'package:provider/provider.dart';
 import '../widgets/customLineChart.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:upgrade/ui/widgets/todayData.dart';
+import '../../data/models/mealLog_model.dart';
+import '../../data/models/aliment_model.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -26,6 +29,83 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     final userProvider = Provider.of<UserProvider>(context);
     final user = userProvider.user;
+    final testMealLog = MealLogModel(
+      id: 'log_001',
+      userId: 'user_001',
+      date: '2025-05-25',
+      meals: {
+        'breakfast': [
+          AlimentModel(
+            id: 'food_001',
+            name: 'Croissant',
+            brand: 'Boulangerie Dupont',
+            category: 'Viennoiserie',
+            portionSize: 60,
+            calories: 250,
+            proteins: 5,
+            carbs: 26,
+            fats: 14,
+            createdAt: '2025-05-25T08:00:00Z',
+          ),
+          AlimentModel(
+            id: 'food_002',
+            name: 'Banane',
+            brand: 'Aucune',
+            category: 'Fruit',
+            portionSize: 120,
+            calories: 105,
+            proteins: 1,
+            carbs: 27,
+            fats: 0,
+            createdAt: '2025-05-25T08:00:00Z',
+          ),
+        ],
+        'lunch': [
+          AlimentModel(
+            id: 'food_003',
+            name: 'Riz blanc',
+            brand: 'Uncle Ben’s',
+            category: 'Féculent',
+            portionSize: 150,
+            calories: 180,
+            proteins: 4,
+            carbs: 39,
+            fats: 1,
+            createdAt: '2025-05-25T13:00:00Z',
+          ),
+          AlimentModel(
+            id: 'food_004',
+            name: 'Poulet rôti',
+            brand: 'Fermier',
+            category: 'Viande',
+            portionSize: 100,
+            calories: 220,
+            proteins: 27,
+            carbs: 0,
+            fats: 12,
+            createdAt: '2025-05-25T13:00:00Z',
+          ),
+        ],
+        'dinner': [
+          AlimentModel(
+            id: 'food_005',
+            name: 'Soupe légumes',
+            brand: 'Liebig',
+            category: 'Plat préparé',
+            portionSize: 250,
+            calories: 100,
+            proteins: 3,
+            carbs: 15,
+            fats: 2,
+            createdAt: '2025-05-25T20:00:00Z',
+          ),
+        ],
+      },
+      totalCalories: 1085,
+      totalProteins: 40,
+      totalCarbs: 107,
+      totalFats: 29,
+    );
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -165,6 +245,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: AppSpacing.md),
+              TodayData(mealLog: testMealLog),
               // SizedBox(height: AppSpacing.md),
               LineChartSample2(
                 spots: [
